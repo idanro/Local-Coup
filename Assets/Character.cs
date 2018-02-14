@@ -8,9 +8,10 @@ public class Character : MonoBehaviour {
     Rigidbody2D rigidbody2d;
 
     [SerializeField] float characterMovementSpeed = 1000f;
+    [SerializeField] float characterJumpHeight = 200f;
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start ()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
 	}
@@ -25,6 +26,10 @@ public class Character : MonoBehaviour {
         if (Input.GetKey(KeyCode.D))
         {
             rigidbody2d.AddRelativeForce(Vector2.right * characterMovementSpeed * Time.deltaTime);
+        }
+        if (Input.GetKey(KeyCode.Space))
+        {
+            rigidbody2d.AddForce(Vector2.up * characterJumpHeight);
         }
     }
 
