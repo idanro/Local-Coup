@@ -129,6 +129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterMovementSpeed: 1000
+  characterJumpHeight: 100
 --- !u!212 &212544000997075234
 SpriteRenderer:
   m_ObjectHideFlags: 1
