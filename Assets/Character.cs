@@ -63,10 +63,9 @@ public class Character : MonoBehaviour {
                 InitiateIdleAnimation();
             }
             else
-                if(velocity.x != 0)
-                {
+            {
                 InitiateWalkingAnimation();
-                }
+            }
         else
         {
             InitiateInAirAnimation();
