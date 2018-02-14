@@ -51,6 +51,7 @@ public class Character : MonoBehaviour {
         if (Input.GetKey(KeyCode.Space) && grounded)
         {
             rigidbody2d.AddForce(Vector2.up * characterJumpHeight);
+            InitiateJumpingAnimation();
         }
     }
 
@@ -58,16 +59,18 @@ public class Character : MonoBehaviour {
     {
         if (grounded)
             if (velocity.x == 0)
+            {
+                InitiateIdleAnimation();
+            }
+            else
+                if(velocity.x != 0)
                 {
-                    InitiateIdleAnimation();
+                InitiateWalkingAnimation();
                 }
-            else if (velocity.x != 0)
-                {
-                    InitiateWalkingAnimation();
-                }
-        else 
+        else
         {
             InitiateInAirAnimation();
+            print("InAirAnimationActivated");
         }
     }
 
