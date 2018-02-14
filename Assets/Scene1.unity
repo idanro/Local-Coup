@@ -324,6 +324,10 @@ Prefab:
       propertyPath: m_Constraints
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1026539099653356, guid: 800c4c2e3b06d8c459e8f25be5b29364, type: 2}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 800c4c2e3b06d8c459e8f25be5b29364, type: 2}
   m_IsPrefabParent: 0
@@ -370,6 +374,10 @@ Prefab:
         type: 2}
       propertyPath: m_Size.x
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1669569389689194, guid: b00ebc5ab124ddf42a5c967af8d3f18e, type: 2}
+      propertyPath: m_TagString
+      value: Terrain
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 61749980535339776, guid: b00ebc5ab124ddf42a5c967af8d3f18e, type: 2}

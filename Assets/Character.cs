@@ -19,6 +19,21 @@ public class Character : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        MovingSideways();
+        StartJump();
+    }
+
+    private void StartJump()
+    {
+        bool isJumping = true;
+        if (Input.GetKey(KeyCode.Space))
+        {
+            rigidbody2d.AddForce(Vector2.up * characterJumpHeight);
+        }
+    }
+
+    private void MovingSideways()
+    {
         if (Input.GetKey(KeyCode.A))
         {
             rigidbody2d.AddRelativeForce(Vector2.left * characterMovementSpeed * Time.deltaTime);
@@ -27,11 +42,5 @@ public class Character : MonoBehaviour {
         {
             rigidbody2d.AddRelativeForce(Vector2.right * characterMovementSpeed * Time.deltaTime);
         }
-        if (Input.GetKey(KeyCode.Space))
-        {
-            rigidbody2d.AddForce(Vector2.up * characterJumpHeight);
-        }
     }
-
-
 }
