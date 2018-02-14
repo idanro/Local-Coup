@@ -13,10 +13,12 @@ public class Character : MonoBehaviour {
     [SerializeField] float characterMovementSpeed = 1000f;
     [SerializeField] float characterJumpHeight = 200f;
     [SerializeField] bool grounded = false;
+
     public Transform groundCheck;
     float groundRadius = 0.2f;
     public LayerMask whatIsGround;
     Vector3 velocity;
+
     // Use this for initialization
     void Start ()
     {
@@ -30,6 +32,7 @@ public class Character : MonoBehaviour {
 
     {
         grounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
+        print(grounded);
         velocity = rigidbody2d.velocity;
         ProcessPlayerInput();
         ControlAnimations();
@@ -53,15 +56,16 @@ public class Character : MonoBehaviour {
 
     private void ControlAnimations()
     {
-        if (grounded && (velocity.x == 0) && (velocity.y == 0))
-        {
-            InitiateIdleAnimation();
-        }
-        else if (grounded && (velocity.x != 0) && (velocity.y == 0))
-        {
-            InitiateWalkingAnimation();
-        }
-        if (!grounded)
+        if (grounded)
+            if (velocity.x == 0)
+                {
+                    InitiateIdleAnimation();
+                }
+            else if (velocity.x != 0)
+                {
+                    InitiateWalkingAnimation();
+                }
+        else 
         {
             InitiateInAirAnimation();
         }
