@@ -12,12 +12,15 @@ public class Character : MonoBehaviour {
 
     [SerializeField] float characterMovementSpeed = 1000f;
     [SerializeField] float characterJumpHeight = 200f;
-    [SerializeField] bool isOnGround;
+    [SerializeField] bool grounded = false;
+    public Transform groundCheck;
+    float groundRadius = 0.2f;
+    public LayerMask whatIsGround;
     Vector3 velocity;
     // Use this for initialization
     void Start ()
     {
-        isOnGround = false;
+        grounded = false;
         anim = GetComponent<Animator>();
         rigidbody2d = GetComponent<Rigidbody2D>();
 	}
@@ -26,7 +29,7 @@ public class Character : MonoBehaviour {
 	void Update ()
 
     {
-        print(isOnGround);
+        grounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
         velocity = rigidbody2d.velocity;
         ProcessPlayerInput();
         ControlAnimations();
@@ -42,32 +45,23 @@ public class Character : MonoBehaviour {
         {
             rigidbody2d.AddRelativeForce(Vector2.right * characterMovementSpeed * Time.deltaTime);
         }
-        if (Input.GetKey(KeyCode.Space) && isOnGround)
+        if (Input.GetKey(KeyCode.Space) && grounded)
         {
             rigidbody2d.AddForce(Vector2.up * characterJumpHeight);
         }
     }
 
-    void OnCollisionEnter (Collision collision) // Need to fix for collision from below only
-    {
-        if(collision.gameObject.name == "Ground")
-        {
-            print("COLLIDING WITH GROUND");
-            isOnGround = true;
-        }
-    }
-
     private void ControlAnimations()
     {
-        if (isOnGround && (velocity.x == 0) && (velocity.y == 0))
+        if (grounded && (velocity.x == 0) && (velocity.y == 0))
         {
             InitiateIdleAnimation();
         }
-        else if (isOnGround && (velocity.x != 0) && (velocity.y == 0))
+        else if (grounded && (velocity.x != 0) && (velocity.y == 0))
         {
             InitiateWalkingAnimation();
         }
-        if (!isOnGround)
+        if (!grounded)
         {
             InitiateInAirAnimation();
         }
