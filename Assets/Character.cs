@@ -72,7 +72,7 @@ public class Character : MonoBehaviour {
 
     private void CheckJump()
     {
-        if (Input.GetKey(KeyCode.Space) && grounded && !isReadyToJump)
+        if ((Input.GetKey(KeyCode.Space) || (Input.GetKey(KeyCode.W))) && grounded && !isReadyToJump)
         {
             isReadyToJump = true;
             Invoke("Jump", 0.1f);
