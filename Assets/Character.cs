@@ -17,7 +17,6 @@ public class Character : MonoBehaviour {
     bool isReadyToJump = false;
 
     public Transform groundCheck;
-    float groundRadius = 0.05f;
     public LayerMask whatIsGround;
     Vector3 velocity;
 
@@ -35,7 +34,7 @@ public class Character : MonoBehaviour {
     void FixedUpdate()
 
     {
-        grounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
+        grounded = Physics2D.OverlapBox(groundCheck.position, new Vector2 (0.7f,0.25f), 0, whatIsGround);
         velocity = rigidbody2d.velocity;
         ProcessPlayerInput();
 
@@ -84,8 +83,6 @@ public class Character : MonoBehaviour {
     {
         rigidbody2d.velocity = new Vector2 (velocity.x, characterJumpSpeed * Time.deltaTime);
         Invoke("DisableReadyToJump",0.11f);
-        print("isReadyToJump: " + isReadyToJump);
-        print("grounded: " + grounded);
     }
 
     private void DisableReadyToJump()
@@ -117,12 +114,4 @@ public class Character : MonoBehaviour {
         theScale.x *= -1;
         transform.localScale = theScale;
     }
-
-    private void InitiateIdleAnimation() { anim.SetInteger("State", 0); }
-
-    private void InitiateWalkingAnimation() { anim.SetInteger("State", 1); }
-
-    private void InitiateJumpingAnimation() { anim.SetInteger("State", 2); }
-
-    private void InitiateInAirAnimation() { anim.SetInteger("State", 3); }
 }
