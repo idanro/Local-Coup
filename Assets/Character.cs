@@ -11,8 +11,10 @@ public class Character : MonoBehaviour {
     Animator anim;
 
     [SerializeField] float characterMovementSpeed = 1000f;
-    [SerializeField] float characterJumpHeight = 200f;
+    [SerializeField] float characterJumpSpeed = 100f;
     [SerializeField] bool grounded = false;
+
+    bool isReadyToJump = false;
 
     public Transform groundCheck;
     float groundRadius = 0.05f;
@@ -33,14 +35,17 @@ public class Character : MonoBehaviour {
     void FixedUpdate()
 
     {
-        anim.SetFloat("vSpeed", velocity.y);
-        anim.SetFloat("xSpeed", Math.Abs(velocity.x));
-        print(velocity.x);
         grounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
         velocity = rigidbody2d.velocity;
         ProcessPlayerInput();
-        ControlAnimations();
+
+        // Get values relevant for animation processing
         anim.SetBool("Grounded", grounded);
+        anim.SetBool("ReadyToJump", isReadyToJump);
+        anim.SetFloat("vSpeed", velocity.y);
+        anim.SetFloat("xSpeed", Math.Abs(velocity.x));
+
+        Animate();
     }
 
     private void ProcessPlayerInput()
@@ -68,21 +73,29 @@ public class Character : MonoBehaviour {
 
     private void CheckJump()
     {
-        if (Input.GetKey(KeyCode.Space) && grounded)
+        if (Input.GetKey(KeyCode.Space) && grounded && !isReadyToJump)
         {
-            Invoke("Jump", 1);
+            isReadyToJump = true;
+            Invoke("Jump", 0.1f);
         }
     }
 
     private void Jump()
     {
-            rigidbody2d.AddForce(Vector2.up * characterJumpHeight);
+        rigidbody2d.velocity = new Vector2 (velocity.x, characterJumpSpeed * Time.deltaTime);
+        Invoke("DisableReadyToJump",0.11f);
+        print("isReadyToJump: " + isReadyToJump);
+        print("grounded: " + grounded);
     }
 
-    private void ControlAnimations()
+    private void DisableReadyToJump()
+    {
+        isReadyToJump = false;
+    }
+
+    private void Animate()
     {
         TurnLeftRight();
-        //TriggerAnimations();
     }
 
     private void TurnLeftRight()
