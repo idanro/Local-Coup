@@ -284,6 +284,31 @@ Prefab:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114207464334569376, guid: 800c4c2e3b06d8c459e8f25be5b29364,
+        type: 2}
+      propertyPath: grounded
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 61938822678209226, guid: 800c4c2e3b06d8c459e8f25be5b29364,
+        type: 2}
+      propertyPath: m_AutoTiling
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 212544000997075234, guid: 800c4c2e3b06d8c459e8f25be5b29364,
+        type: 2}
+      propertyPath: m_DrawMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212544000997075234, guid: 800c4c2e3b06d8c459e8f25be5b29364,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 212544000997075234, guid: 800c4c2e3b06d8c459e8f25be5b29364,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 16
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 800c4c2e3b06d8c459e8f25be5b29364, type: 2}
   m_IsPrefabParent: 0
