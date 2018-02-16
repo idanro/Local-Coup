@@ -34,7 +34,7 @@ public class Character : MonoBehaviour {
     void FixedUpdate()
 
     {
-        grounded = Physics2D.OverlapBox(groundCheck.position, new Vector2 (0.7f,0.25f), 0, whatIsGround);
+        grounded = Physics2D.OverlapBox(groundCheck.position, new Vector2 (0.6f,0.25f), 0, whatIsGround);
         velocity = rigidbody2d.velocity;
         ProcessPlayerInput();
 
