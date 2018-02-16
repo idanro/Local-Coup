@@ -24,8 +24,8 @@ public class TinyBlob : MonoBehaviour {
     void Update () {
 
         eightFigure = new Vector3(
-                Mathf.Cos(Time.time),
-                Mathf.Sin(2f * (Time.time)) / 2f,
+                Mathf.Cos(Time.time)/2,
+                Mathf.Sin(2f * (Time.time)) / 6f,
                 0f); //the eight figure formula
         offset = (player.transform.position - transform.position + eightFigure + new Vector3(0f, 1f, 0f)) / 50f;
             
