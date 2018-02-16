@@ -82,7 +82,8 @@ public class Character : MonoBehaviour {
     private void Jump()
     {
         rigidbody2d.velocity = new Vector2 (velocity.x, characterJumpSpeed * Time.deltaTime);
-        Invoke("DisableReadyToJump",0.07f);
+        //Invoke("DisableReadyToJump",0.07f);
+        DisableReadyToJump();
     }
 
     private void DisableReadyToJump()
