@@ -527,16 +527,10 @@ Prefab:
       propertyPath: m_WasSpriteAssigned
       value: 0
       objectReference: {fileID: 0}
-<<<<<<< HEAD
-    - target: {fileID: 1026539099653356, guid: 800c4c2e3b06d8c459e8f25be5b29364, type: 2}
-      propertyPath: m_TagString
-      value: Player
-=======
     - target: {fileID: 50778673691326540, guid: 800c4c2e3b06d8c459e8f25be5b29364,
         type: 2}
       propertyPath: m_Interpolate
       value: 1
->>>>>>> Idan's-Animation-Nonsense
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 800c4c2e3b06d8c459e8f25be5b29364, type: 2}
@@ -4860,16 +4854,6 @@ Prefab:
       propertyPath: m_BackGroundColor.r
       value: 1
       objectReference: {fileID: 0}
-<<<<<<< HEAD
-    - target: {fileID: 1669569389689194, guid: b00ebc5ab124ddf42a5c967af8d3f18e, type: 2}
-      propertyPath: m_TagString
-      value: Terrain
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 61749980535339776, guid: b00ebc5ab124ddf42a5c967af8d3f18e, type: 2}
-    - {fileID: 50020557927144904, guid: b00ebc5ab124ddf42a5c967af8d3f18e, type: 2}
-  m_ParentPrefab: {fileID: 100100000, guid: b00ebc5ab124ddf42a5c967af8d3f18e, type: 2}
-=======
     - target: {fileID: 20438981012530670, guid: 5f74890f34a82264393670753b74bbb2,
         type: 2}
       propertyPath: m_BackGroundColor.g
@@ -4887,5 +4871,4 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5f74890f34a82264393670753b74bbb2, type: 2}
->>>>>>> Idan's-Animation-Nonsense
   m_IsPrefabParent: 0
