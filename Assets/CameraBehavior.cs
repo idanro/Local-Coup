@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CameraBehavior : MonoBehaviour {
 
-    [SerializeField] float cameraSmoothing = 10f;
     public GameObject player;
     private Vector3 offset;
 
@@ -17,7 +16,7 @@ public class CameraBehavior : MonoBehaviour {
 	// Update is called once per frame
 	void LateUpdate ()
     {
-        offset = (player.transform.position - transform.position) / cameraSmoothing;
+        offset = (player.transform.position - transform.position) / 10f;
         transform.position += new Vector3 (offset.x, offset.y, 0);
         //transform.position = new Vector3(player.transform.position.x, player.transform.position.y, -10);
     }
