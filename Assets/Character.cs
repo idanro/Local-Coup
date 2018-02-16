@@ -56,21 +56,6 @@ public class Character : MonoBehaviour {
 
     private void CheckMoveLeft()
     {
-        MovingSideways();
-        StartJump();
-    }
-
-    private void StartJump()
-    {
-        bool isJumping = true;
-        if (Input.GetKey(KeyCode.Space))
-        {
-            rigidbody2d.AddForce(Vector2.up * characterJumpHeight);
-        }
-    }
-
-    private void MovingSideways()
-    {
         if (Input.GetKey(KeyCode.A))
         {
             rigidbody2d.AddRelativeForce(Vector2.left * characterMovementSpeed * Time.deltaTime);
@@ -83,9 +68,6 @@ public class Character : MonoBehaviour {
         {
             rigidbody2d.AddRelativeForce(Vector2.right * characterMovementSpeed * Time.deltaTime);
         }
-<<<<<<< HEAD
-    }
-=======
     }
 
     private void CheckJump()
@@ -132,5 +114,4 @@ public class Character : MonoBehaviour {
         theScale.x *= -1;
         transform.localScale = theScale;
     }
->>>>>>> Idan's-Animation-Nonsense
 }
