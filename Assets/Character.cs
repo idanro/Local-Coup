@@ -75,14 +75,14 @@ public class Character : MonoBehaviour {
         if ((Input.GetKey(KeyCode.Space) || (Input.GetKey(KeyCode.W))) && grounded && !isReadyToJump)
         {
             isReadyToJump = true;
-            Invoke("Jump", 0.1f);
+            Jump();
         }
     }
 
     private void Jump()
     {
         rigidbody2d.velocity = new Vector2 (velocity.x, characterJumpSpeed * Time.deltaTime);
-        Invoke("DisableReadyToJump",0.11f);
+        Invoke("DisableReadyToJump",0.07f);
     }
 
     private void DisableReadyToJump()
