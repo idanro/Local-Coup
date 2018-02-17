@@ -5,11 +5,12 @@ using UnityEngine;
 public class TinyBlob : MonoBehaviour {
 
     public GameObject player;
+    [SerializeField] Vector3 heightABovePlayer;
     [SerializeField] Vector3 offset;
-
+    
     bool facingRight = true;
 
-    [SerializeField] float eightPatternStrength = 10f; //control the size of the eight figure, unused for now
+    //[SerializeField] float eightPatternStrength = 10f; //control the size of the eight figure, unused for now
     [SerializeField] Vector3 eightFigure; //displays the eight figure in inspector
             
 
@@ -20,6 +21,7 @@ public class TinyBlob : MonoBehaviour {
     void Start () {
 
         anim = GetComponent<Animator>();
+        heightABovePlayer = new Vector3(0f, 1f, 0f);
 
     }
 
@@ -32,7 +34,6 @@ public class TinyBlob : MonoBehaviour {
 
         velocity = Mathf.Sqrt(Mathf.Abs(Mathf.Pow(offset.x, 2)) + Mathf.Abs(Mathf.Pow(offset.y, 2)));
 
-        print("Velocity: " + velocity);
         anim.SetFloat("Speed", velocity);
         
     }
@@ -43,7 +44,7 @@ public class TinyBlob : MonoBehaviour {
                         Mathf.Cos(Time.time)/2f,
                         Mathf.Sin(2f * (Time.time)) / 6f,
                         0f); //the eight figure formula
-        offset = (player.transform.position - transform.position + eightFigure + new Vector3(0f, 1f, 0f)) / 50f;
+        offset = (player.transform.position - transform.position + eightFigure + heightABovePlayer) / 50f;
     }
 
     private void TurnLeftRight()
